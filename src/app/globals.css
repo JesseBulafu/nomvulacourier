@@ -1,26 +1,115 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+html {
+  scroll-behavior: smooth;
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
+  --color-background: #ffffff;
+  --color-foreground: #111827;
+  --color-primary: #f97316;
+  --color-primary-dark: #ea580c;
+  --color-primary-light: #fed7aa;
+  --color-navy: #0f172a;
+  --color-navy-light: #1e293b;
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+* {
+  scroll-behavior: smooth;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: var(--color-background);
+  color: var(--color-foreground);
+  font-family: var(--font-sans), system-ui, sans-serif;
 }
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #f1f5f9;
+}
+::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}
+
+/* GSAP defaults */
+.gsap-reveal {
+  opacity: 0;
+  transform: translateY(40px);
+}
+
+/* Video placeholder */
+.video-placeholder {
+  position: relative;
+  overflow: hidden;
+  border-radius: 1rem;
+  background: #0f172a;
+}
+.video-placeholder::after {
+  content: "Your video here";
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #94a3b8;
+  font-size: 1.125rem;
+  font-weight: 500;
+}
+
+/* 3D placeholder */
+.three-placeholder {
+  position: relative;
+  overflow: hidden;
+  background: radial-gradient(ellipse at center, #1e293b 0%, #0f172a 70%);
+  border-radius: 1rem;
+}
+.three-placeholder::after {
+  content: "3D Asset Placeholder";
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #475569;
+  font-size: 0.875rem;
+}
+
+/* Frosted glass with 3D hover effect for cards */
+.frosted-3d {
+  background: rgba(255, 255, 255, 0.72);
+  -webkit-backdrop-filter: blur(8px) saturate(120%);
+  backdrop-filter: blur(8px) saturate(120%);
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  box-shadow: 0 6px 18px rgba(15, 23, 42, 0.06);
+  transform-style: preserve-3d;
+  transition: transform 300ms cubic-bezier(.2,.8,.2,1), box-shadow 300ms;
+  will-change: transform;
+}
+.frosted-3d::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  pointer-events: none;
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.35);
+}
+.frosted-3d:hover {
+  transform: translateY(-6px) scale(1.01);
+  box-shadow: 0 12px 30px rgba(15, 23, 42, 0.12);
+}
+
+/* Optional perspective container to enhance 3D feel */
+.card-perspective {
+  perspective: 1000px;
+}
+ 
