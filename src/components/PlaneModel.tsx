@@ -1,8 +1,8 @@
 "use client";
 
-import { useRef, useEffect } from "react";
+import { useRef, useEffect, Suspense } from "react";
 import { Canvas, useFrame, useThree } from "@react-three/fiber";
-import { useGLTF } from "@react-three/drei";
+import { useGLTF, Html, useProgress } from "@react-three/drei";
 import * as THREE from "three";
 import gsap from "gsap";
 
@@ -111,13 +111,22 @@ export default function PlaneModel({ className = "" }: { className?: string }) {
   return (
     <div className={className}>
       <Canvas
-        gl={{ antialias: true, alpha: true }}
-        dpr={[1, 1.5]}
+        gl={{ antialias: false, alpha: true, powerPreference: "low-power" }}
+        dpr={1}
+        frameloop="demand"
         style={{ background: "transparent" }}
       >
         <CameraRig />
         <Lights />
-        <Plane />
+        <Suspense
+          fallback={
+            <Html center>
+              <div className="h-10 w-10 rounded-full border-2 border-orange-500 border-t-transparent animate-spin" />
+            </Html>
+          }
+        >
+          <Plane />
+        </Suspense>
       </Canvas>
     </div>
   );
