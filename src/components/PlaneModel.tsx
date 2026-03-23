@@ -2,7 +2,7 @@
 
 import { useRef, useEffect } from "react";
 import { Canvas, useFrame, useThree } from "@react-three/fiber";
-import { useGLTF, OrbitControls } from "@react-three/drei";
+import { useGLTF } from "@react-three/drei";
 import * as THREE from "three";
 import gsap from "gsap";
 
@@ -13,34 +13,20 @@ function Plane() {
   useEffect(() => {
     if (!ref.current) return;
 
-    // Base Y object used for the vertical flight + gentle hover offset
-    const base = { y: 8 };
-
-    // Start high above the scene
-    ref.current.position.set(0, base.y, 0);
+    // Initial position — off-screen right
+    ref.current.position.set(8, 0, 0);
     ref.current.rotation.set(0, -Math.PI / 2, 0);
 
-    // Animate horizontal approach (x/z) while we animate base.y separately
+    // Animate the plane flying in from the right
     gsap.to(ref.current.position, {
       x: 0,
+      y: 0.3,
       z: 0,
       duration: 2.5,
       ease: "power3.out",
       delay: 0.5,
     });
 
-    // Animate the descent from above into final base Y
-    gsap.to(base, {
-      y: 0.3,
-      duration: 2.5,
-      ease: "power3.out",
-      delay: 0.5,
-      onUpdate: () => {
-        if (ref.current) ref.current.position.y = base.y;
-      },
-    });
-
-    // Slight rotation to settle the plane after approach
     gsap.to(ref.current.rotation, {
       y: -Math.PI / 6,
       duration: 2.5,
@@ -51,23 +37,29 @@ function Plane() {
     // Dispose scene on unmount to free memory
     return () => {
       scene.traverse((obj) => {
-        if (obj.isMesh) {
-          obj.geometry.dispose();
-          if (obj.material.map) obj.material.map.dispose();
-          if (obj.material.dispose) obj.material.dispose();
+        if ((obj as THREE.Mesh).isMesh) {
+          const mesh = obj as THREE.Mesh;
+          if (mesh.geometry) mesh.geometry.dispose();
+          if (mesh.material) {
+            const materials = Array.isArray(mesh.material)
+              ? mesh.material
+              : [mesh.material];
+            materials.forEach((m) => {
+              // @ts-ignore - some material types may not have map
+              if (m && (m as any).map) (m as any).map.dispose();
+              if (m && typeof (m as any).dispose === "function") (m as any).dispose();
+            });
+          }
         }
       });
     };
   }, [scene]);
 
   // Gentle hovering animation
-  // Gentle hovering animation that builds on the animated base.y value
   useFrame(({ clock }) => {
     if (!ref.current) return;
     const t = clock.getElapsedTime();
-    // Read the current base Y (set by the gsap onUpdate or initial value)
-    const baseY = ref.current.position.y;
-    ref.current.position.y = baseY + Math.sin(t * 0.8) * 0.15;
+    ref.current.position.y = 0.3 + Math.sin(t * 0.8) * 0.15;
     ref.current.rotation.z = Math.sin(t * 0.5) * 0.02;
   });
 
