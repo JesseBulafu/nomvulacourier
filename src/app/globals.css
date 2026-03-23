@@ -26,6 +26,16 @@ body {
   font-family: var(--font-sans), system-ui, sans-serif;
 }
 
+/* Improve touch behavior and responsive canvases */
+* { -ms-touch-action: manipulation; touch-action: manipulation; }
+
+/* Ensure canvas and media scale down on small screens */
+canvas, img, video {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
 /* Custom scrollbar */
 ::-webkit-scrollbar {
   width: 8px;

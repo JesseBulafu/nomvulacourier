@@ -170,7 +170,7 @@ export default function HomePage() {
               <Magnetic>
                 <Link
                   href="/contact"
-                  className="inline-flex items-center gap-2 rounded-full bg-orange-500 px-8 py-4 text-sm font-semibold text-white transition-all hover:bg-orange-600 hover:shadow-xl hover:shadow-orange-500/30"
+                  className="w-full sm:inline-flex sm:w-auto items-center gap-2 rounded-full bg-orange-500 px-6 py-3 text-sm font-semibold text-white transition-all hover:bg-orange-600 hover:shadow-xl hover:shadow-orange-500/30 text-center"
                 >
                   Get a Free Quote
                   <ArrowRight className="h-4 w-4" />
@@ -179,7 +179,7 @@ export default function HomePage() {
               <Magnetic>
                 <Link
                   href="/tracking"
-                  className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/5 px-8 py-4 text-sm font-semibold text-white backdrop-blur-sm transition-all hover:bg-white/10"
+                  className="w-full sm:inline-flex sm:w-auto items-center gap-2 rounded-full border border-white/20 bg-white/5 px-6 py-3 text-sm font-semibold text-white backdrop-blur-sm transition-all hover:bg-white/10 text-center"
                 >
                   Track Shipment
                   <ChevronRight className="h-4 w-4" />
