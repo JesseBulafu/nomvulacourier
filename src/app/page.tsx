@@ -32,14 +32,7 @@ const PlaneModel = dynamic(() => import("@/components/PlaneModel"), {
   ),
 });
 
-const GlobeModel = dynamic(() => import("@/components/GlobeModel"), {
-  ssr: false,
-  loading: () => (
-    <div className="h-full w-full flex items-center justify-center">
-      <div className="h-12 w-12 rounded-full border-2 border-orange-500 border-t-transparent animate-spin" />
-    </div>
-  ),
-});
+import LazyGlobe from "@/components/LazyGlobe";
 
 /* ─── Data ─────────────────────────────────────────── */
 
@@ -372,8 +365,8 @@ export default function HomePage() {
             {/* 3D Globe */}
             <ScrollReveal direction="right">
               <div className="aspect-square w-full max-w-lg mx-auto">
-                <GlobeModel className="w-full h-full" />
-              </div>
+                  <LazyGlobe className="w-full h-full" />
+                </div>
             </ScrollReveal>
           </div>
         </div>
