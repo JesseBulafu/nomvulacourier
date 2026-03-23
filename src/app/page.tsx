@@ -267,19 +267,20 @@ export default function HomePage() {
           <div className="grid items-center gap-16 lg:grid-cols-2">
             {/* Video placeholder — swap with your video later */}
             <ScrollReveal direction="left">
-              <div className="video-placeholder aspect-video w-full flex items-center justify-center">
-                <div className="relative z-10 flex flex-col items-center gap-4">
-                  <button
-                    className="flex h-20 w-20 items-center justify-center rounded-full bg-orange-500 text-white transition-transform hover:scale-110 shadow-xl shadow-orange-500/30"
-                    aria-label="Play video"
-                  >
-                    <Play className="h-8 w-8 ml-1" />
-                  </button>
-                  <span className="text-sm text-gray-400">
-                    Watch Our Story
-                  </span>
+              <div className="video-placeholder aspect-video w-full flex items-center justify-center overflow-hidden">
+                  <video
+                    className="w-full h-full object-cover"
+                    src="/videos/hero.mp4"
+                    autoPlay
+                    muted
+                    loop
+                    playsInline
+                    aria-label="Hero video"
+                  />
+                  <div className="relative z-10 flex flex-col items-center gap-4 pointer-events-none">
+                    <span className="sr-only">Watch Our Story</span>
+                  </div>
                 </div>
-              </div>
             </ScrollReveal>
 
             <div>
