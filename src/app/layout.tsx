@@ -43,6 +43,7 @@ export default function RootLayout({
       <head>
         <link rel="icon" href="/favicon-truck.svg" />
         <link rel="apple-touch-icon" href="/favicon-truck.svg" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta name="theme-color" content="#ff7a00" />
       </head>
       <body className="min-h-full flex flex-col">
