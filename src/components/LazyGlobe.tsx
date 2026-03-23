@@ -2,7 +2,6 @@
 
 import { useEffect, useRef, useState } from "react";
 import dynamic from "next/dynamic";
-import { Html } from "@react-three/drei";
 
 // Dynamically import the GlobeModel (client-side only)
 const GlobeModel = dynamic(() => import("./GlobeModel"), {
@@ -56,9 +55,7 @@ export default function LazyGlobe({ className = "" }: { className?: string }) {
         </div>
       ) : (
         <div className="w-full h-full flex items-center justify-center">
-          <Html center>
-            <div className="h-10 w-10 rounded-full border-2 border-orange-500 border-t-transparent animate-spin" />
-          </Html>
+          <div className="h-10 w-10 rounded-full border-2 border-orange-500 border-t-transparent animate-spin" aria-hidden="true" />
         </div>
       )}
       {!visible && (
