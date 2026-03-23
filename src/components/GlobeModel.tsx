@@ -1,8 +1,8 @@
 "use client";
 
-import { useRef, useEffect, Suspense } from "react";
+import { useRef, useEffect } from "react";
 import { Canvas, useFrame } from "@react-three/fiber";
-import { useGLTF, Html } from "@react-three/drei";
+import { useGLTF } from "@react-three/drei";
 import * as THREE from "three";
 
 function Globe() {
@@ -38,7 +38,7 @@ function Globe() {
   }, [scene]);
 
   return (
-    <group ref={ref} scale={[1, 1, 1]} position={[0, 0, 0]}>
+    <group ref={ref} scale={[0.9, 0.9, 0.9]} position={[0, 0, 0]}>
       <primitive object={scene} />
     </group>
   );
@@ -63,22 +63,13 @@ export default function GlobeModel({ className = "" }: { className?: string }) {
   return (
     <div className={className}>
       <Canvas
-        gl={{ antialias: false, alpha: true, powerPreference: "low-power" }}
-        dpr={1}
-        frameloop="demand"
+        gl={{ antialias: true, alpha: true }}
+        dpr={[1, 1.5]}
         camera={{ position: [0, 2, 5], fov: 50 }}
         style={{ background: "transparent" }}
       >
         <Lights />
-        <Suspense
-          fallback={
-            <Html center>
-              <div className="h-10 w-10 rounded-full border-2 border-orange-500 border-t-transparent animate-spin" />
-            </Html>
-          }
-        >
-          <Globe />
-        </Suspense>
+        <Globe />
       </Canvas>
     </div>
   );
