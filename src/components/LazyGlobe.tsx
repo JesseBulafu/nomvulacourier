@@ -3,9 +3,28 @@
 import { useEffect, useRef, useState } from "react";
 import dynamic from "next/dynamic";
 
-// Dynamically import the GlobeModel (client-side only)
-const GlobeModel = dynamic(() => import("./GlobeModel"), {
+// Retry helper for dynamic imports (handles transient ChunkLoadError)
+function loadWithRetry(fn: () => Promise<any>, retries = 3, delay = 800): Promise<any> {
+  return new Promise((resolve, reject) => {
+    fn()
+      .then(resolve)
+      .catch((err) => {
+        if (retries <= 0) return reject(err);
+        setTimeout(() => {
+          loadWithRetry(fn, retries - 1, delay).then(resolve).catch(reject);
+        }, delay);
+      });
+  });
+}
+
+// Dynamically import the GlobeModel (client-side only) with retry
+const GlobeModel = dynamic(() => loadWithRetry(() => import("./GlobeModel"), 2, 800), {
   ssr: false,
+  loading: () => (
+    <div className="w-full h-full flex items-center justify-center">
+      <div className="h-10 w-10 rounded-full border-2 border-orange-500 border-t-transparent animate-spin" aria-hidden="true" />
+    </div>
+  ),
 });
 
 export default function LazyGlobe({ className = "" }: { className?: string }) {
