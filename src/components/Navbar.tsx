@@ -19,7 +19,7 @@ const navLinks = [
   { href: "/#services", label: "Services" },
   { href: "/#about", label: "About" },
   { href: "/#how-it-works", label: "How It Works" },
-  { href: "/#testimonials", label: "Testimonials" },
+
 ];
 
 export default function Navbar() {
@@ -42,7 +42,7 @@ export default function Navbar() {
           : "bg-transparent"
       )}
     >
-      <nav aria-label="Main navigation" className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4 lg:px-8">
+      <nav aria-label="Main navigation" className="mx-auto flex max-w-7xl items-center justify-between px-4 py-3 sm:px-6 sm:py-4 lg:px-8">
         {/* Logo */}
         <Link href="/" className="flex items-center gap-2 group">
           <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-orange-500 transition-transform group-hover:scale-110">
@@ -92,7 +92,7 @@ export default function Navbar() {
             href="/contact"
             className="rounded-full bg-orange-500 px-6 py-2.5 text-sm font-semibold text-white transition-all hover:bg-orange-600 hover:shadow-lg hover:shadow-orange-500/25"
           >
-            Get a Quote
+            Get in Touch
           </Link>
         </div>
 
@@ -102,7 +102,7 @@ export default function Navbar() {
           aria-expanded={isOpen}
           aria-label={isOpen ? "Close menu" : "Open menu"}
           className={cn(
-            "lg:hidden p-3 rounded-lg transition-colors touch-manipulation",
+            "lg:hidden p-3.5 rounded-lg transition-colors touch-manipulation",
             scrolled ? "text-gray-900" : "text-white"
           )}
         >
@@ -114,10 +114,10 @@ export default function Navbar() {
       <div
         className={cn(
           "lg:hidden overflow-hidden transition-all duration-300 bg-white",
-          isOpen ? "max-h-96 border-b" : "max-h-0"
+          isOpen ? "max-h-[calc(100vh-64px)] border-b" : "max-h-0"
         )}
       >
-        <div className="px-6 py-4 space-y-3">
+        <div className="px-4 py-4 space-y-2 sm:px-6">
           {navLinks.map((link) => (
             <Link
               key={link.href}
@@ -142,9 +142,9 @@ export default function Navbar() {
           <Link
             href="/contact"
             onClick={() => setIsOpen(false)}
-            className="block w-full text-center rounded-full bg-orange-500 px-6 py-2.5 text-sm font-semibold text-white"
+            className="block w-full text-center rounded-full bg-orange-500 px-6 py-3 text-sm font-semibold text-white"
           >
-            Get a Quote
+            Get in Touch
           </Link>
         </div>
       </div>

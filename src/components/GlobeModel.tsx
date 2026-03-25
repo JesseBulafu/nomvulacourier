@@ -65,7 +65,7 @@ export default function GlobeModel({ className = "" }: { className?: string }) {
       <Canvas
         gl={{ antialias: true, alpha: true }}
         dpr={[1, 1.5]}
-        camera={{ position: [0, 2, 5], fov: 50 }}
+        camera={{ position: [0, 2, 6], fov: 50 }}
         style={{ background: "transparent" }}
       >
         <Lights />

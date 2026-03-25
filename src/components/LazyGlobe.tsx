@@ -29,7 +29,7 @@ const GlobeModel = dynamic(() => loadWithRetry(() => import("./GlobeModel"), 2, 
 
 export default function LazyGlobe({ className = "" }: { className?: string }) {
   const ref = useRef<HTMLDivElement | null>(null);
-  const [visible, setVisible] = useState(false);
+  const [inView, setInView] = useState(false);
   const [tried, setTried] = useState(0);
 
   useEffect(() => {
@@ -40,7 +40,7 @@ export default function LazyGlobe({ className = "" }: { className?: string }) {
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            setVisible(true);
+            setInView(true);
             io.disconnect();
           }
         });
@@ -61,23 +61,26 @@ export default function LazyGlobe({ className = "" }: { className?: string }) {
   // (GlobeModel should handle its own errors, but this adds resilience)
   const handleRetry = () => {
     setTried((t) => t + 1);
-    setVisible(false);
-    setTimeout(() => setVisible(true), 200);
+    setInView(false);
+    setTimeout(() => setInView(true), 200);
   };
 
   return (
     <div ref={ref} className={className}>
-      {visible ? (
+      {inView ? (
         // key on `tried` forces remount for retry
         <div key={tried} className="w-full h-full">
           <GlobeModel />
         </div>
       ) : (
         <div className="w-full h-full flex items-center justify-center">
-          <div className="h-10 w-10 rounded-full border-2 border-orange-500 border-t-transparent animate-spin" aria-hidden="true" />
+          <svg className="w-12 h-12 text-white/80 animate-spin" viewBox="0 0 50 50" fill="none" aria-hidden>
+            <circle cx="25" cy="25" r="20" stroke="currentColor" strokeWidth="4" strokeOpacity="0.2" />
+            <path d="M45 25a20 20 0 00-20-20" stroke="currentColor" strokeWidth="4" strokeLinecap="round" />
+          </svg>
         </div>
       )}
-      {!visible && (
+      {!inView && (
         <button
           onClick={handleRetry}
           className="sr-only"

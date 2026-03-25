@@ -1,0 +1,11 @@
+Model Information:
+* title:	Earth Globe Sci-Fi Look
+* source:	https://sketchfab.com/3d-models/earth-globe-sci-fi-look-8434c67a411f484c81db412b49de0427
+* author:	spaceexpert (https://sketchfab.com/spaceexpert)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Earth Globe Sci-Fi Look" (https://sketchfab.com/3d-models/earth-globe-sci-fi-look-8434c67a411f484c81db412b49de0427) by spaceexpert (https://sketchfab.com/spaceexpert) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)

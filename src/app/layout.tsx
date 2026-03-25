@@ -15,9 +15,9 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Nomvula Courier | Premium Freight & Logistics",
+  title: "Nomvula Courier & Procurement | Premium Freight & Logistics",
   description:
-    "Nomvula Courier — Based in Kempton Park, South Africa. Your trusted partner in freight, logistics, and courier services across Africa and beyond. Fast, reliable, and secure delivery solutions.",
+    "Nomvula Courier & Procurement — Based in Kempton Park, South Africa. Your trusted partner in freight, logistics, and courier services across Africa and beyond. Fast, reliable, and secure delivery solutions.",
   keywords: [
     "courier",
     "freight",

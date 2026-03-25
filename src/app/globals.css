@@ -64,17 +64,7 @@ canvas, img, video {
   border-radius: 1rem;
   background: #0f172a;
 }
-.video-placeholder::after {
-  content: "Your video here";
-  position: absolute;
-  inset: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: #94a3b8;
-  font-size: 1.125rem;
-  font-weight: 500;
-}
+/* Removed overlay placeholder text so user videos are visible */
 
 /* 3D placeholder */
 .three-placeholder {
@@ -121,5 +111,11 @@ canvas, img, video {
 /* Optional perspective container to enhance 3D feel */
 .card-perspective {
   perspective: 1000px;
+}
+
+/* Animated wave keyframes for contact page */
+@keyframes wave {
+  0%, 100% { transform: translateX(0); }
+  50% { transform: translateX(-50%); }
 }
  

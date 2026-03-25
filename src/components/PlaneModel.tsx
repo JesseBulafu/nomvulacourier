@@ -64,7 +64,7 @@ function Plane() {
   });
 
   return (
-    <group ref={ref} scale={[0.003, 0.003, 0.003]}>
+    <group ref={ref} scale={[0.004, 0.004, 0.004]}>
       <primitive object={scene} />
     </group>
   );

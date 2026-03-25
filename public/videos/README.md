@@ -1,7 +1,7 @@
-Place your hero MP4 here and name it `hero.mp4`.
+This folder contains the hero video used on the homepage.
 
-Path: `/public/videos/hero.mp4`
+Current filename: `nomvula.mp4`
 
-The site expects the file at `/videos/hero.mp4`. It will be autoplayed muted and looped in the hero section.
+Path: `/public/videos/nomvula.mp4`
 
-If you want a different filename, update `src/app/page.tsx` video `src` accordingly.
+The site will autoplay the video muted and loop it in the hero section. To use a different file, update the `src` on the video element in `src/app/page.tsx`.

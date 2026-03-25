@@ -12,24 +12,18 @@ import {
 
 const footerLinks = {
   services: [
-    { label: "Express Delivery", href: "/services#express" },
-    { label: "Freight Shipping", href: "/services#freight" },
-    { label: "Warehousing", href: "/services#warehousing" },
-    { label: "Last Mile Delivery", href: "/services#lastmile" },
-    { label: "International Shipping", href: "/services#international" },
+    { label: "Express Delivery", href: "/#services" },
+    { label: "Freight Shipping", href: "/#services" },
+    { label: "Warehousing", href: "/#services" },
+    { label: "Last Mile Delivery", href: "/#services" },
+    { label: "International Shipping", href: "/#services" },
   ],
   company: [
     { label: "About Us", href: "/about" },
     { label: "Our Team", href: "/about#team" },
-    { label: "Careers", href: "/about#careers" },
-    { label: "News & Updates", href: "/about#news" },
   ],
   support: [
-    { label: "Track Shipment", href: "/tracking" },
     { label: "Contact Us", href: "/contact" },
-    { label: "FAQ", href: "/contact#faq" },
-    { label: "Terms & Conditions", href: "/terms" },
-    { label: "Privacy Policy", href: "/privacy" },
   ],
 };
 
@@ -43,8 +37,8 @@ const socials = [
 export default function Footer() {
   return (
     <footer className="bg-gray-900 text-gray-300">
-      <div className="mx-auto max-w-7xl px-6 pt-16 pb-8 lg:px-8">
-        <div className="grid grid-cols-1 gap-10 md:grid-cols-2 lg:grid-cols-5">
+      <div className="mx-auto max-w-7xl px-4 pt-12 pb-8 sm:px-6 sm:pt-16 lg:px-8">
+        <div className="grid grid-cols-1 gap-8 md:grid-cols-2 md:gap-10 lg:grid-cols-5">
           {/* Brand column */}
           <div className="lg:col-span-2 space-y-6">
             <Link href="/" className="flex items-center gap-2">
@@ -87,7 +81,7 @@ export default function Footer() {
               </div>
               <div className="flex items-center gap-3">
                 <Mail className="h-4 w-4 text-orange-400 shrink-0" />
-                <span>info@nomvulacourier.co.za</span>
+                <span>Nomvulacourierp@gmail.com</span>
               </div>
             </div>
           </div>
@@ -153,8 +147,19 @@ export default function Footer() {
         {/* Bottom bar */}
         <div className="mt-12 flex flex-col items-center justify-between gap-4 border-t border-gray-800 pt-8 md:flex-row">
           <p className="text-sm text-gray-500">
-            &copy; {new Date().getFullYear()} Nomvula Courier. All rights
+            &copy; {new Date().getFullYear()} Nomvula Courier &amp; Procurement. All rights
             reserved.
+          </p>
+          <p className="text-sm text-gray-500">
+            Designed &amp; Built by{" "}
+            <a
+              href="https://arstra-portfolio-main.vercel.app/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-orange-400 hover:text-orange-300 transition-colors"
+            >
+              Arstradevs
+            </a>
           </p>
           <div className="flex gap-4">
             {socials.map(({ Icon, href, label }) => (
@@ -162,7 +167,7 @@ export default function Footer() {
                 key={label}
                 href={href}
                 aria-label={label}
-                className="flex h-9 w-9 items-center justify-center rounded-full bg-gray-800 text-gray-400 transition-all hover:bg-orange-500 hover:text-white"
+                className="flex h-10 w-10 items-center justify-center rounded-full bg-gray-800 text-gray-400 transition-all hover:bg-orange-500 hover:text-white"
               >
                 <Icon className="h-4 w-4" />
               </a>
