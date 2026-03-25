@@ -1,5 +1,6 @@
 "use client";
 
+import { useRef, useEffect } from "react";
 import dynamic from "next/dynamic";
 import Link from "next/link";
 import {
@@ -107,6 +108,15 @@ const partners = [
 /* ─── Page ─────────────────────────────────────────── */
 
 export default function HomePage() {
+  const videoRef = useRef<HTMLVideoElement>(null);
+
+  useEffect(() => {
+    const v = videoRef.current;
+    if (v) {
+      v.play().catch(() => {});
+    }
+  }, []);
+
   return (
     <>
       {/* ── Hero ────────────────────────────────────── */}
@@ -252,12 +262,14 @@ export default function HomePage() {
             <ScrollReveal direction="left">
               <div className="video-placeholder aspect-video w-full flex items-center justify-center overflow-hidden">
                   <video
+                    ref={videoRef}
                     className="w-full h-full object-cover"
                     src="/videos/nomvula.mp4"
                     autoPlay
                     muted
                     loop
                     playsInline
+                    preload="auto"
                     aria-label="Hero video"
                   />
                   <div className="relative z-10 flex flex-col items-center gap-4 pointer-events-none">
