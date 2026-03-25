@@ -30,7 +30,6 @@ const timeline = [
   { year: "2017", title: "Launched Air Freight", desc: "Partnered with SAA Cargo and Ethiopian Airlines for time-critical shipments." },
   { year: "2020", title: "Sea Freight Division", desc: "Added ocean freight with full-container and groupage services." },
   { year: "2023", title: "42 Countries & Counting", desc: "Pan-African network with global reach through strategic partnerships." },
-  { year: "2026", title: "Technology-First Logistics", desc: "AI-powered route optimization and real-time supply chain visibility." },
 ];
 
 const values = [
