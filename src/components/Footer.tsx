@@ -15,7 +15,7 @@ const footerLinks = {
     { label: "Express Delivery", href: "/#services" },
     { label: "Freight Shipping", href: "/#services" },
     { label: "Warehousing", href: "/#services" },
-    { label: "Last Mile Delivery", href: "/#services" },
+    { label: "Human Remains Repatriation", href: "/#services" },
     { label: "International Shipping", href: "/#services" },
   ],
   company: [
