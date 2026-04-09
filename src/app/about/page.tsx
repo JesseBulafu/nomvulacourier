@@ -77,7 +77,7 @@ export default function AboutPage() {
       </section>
 
       {/* ── Bento Grid — Transport Modes ────────────── */}
-      <section className="py-16 sm:py-24 lg:py-32">
+      <section id="how-we-deliver" className="py-16 sm:py-24 lg:py-32">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-2xl mx-auto mb-16">
             <ScrollReveal>
@@ -283,22 +283,21 @@ export default function AboutPage() {
               </div>
             </ScrollReveal>
 
-            {/* ── Last Mile — small card (spans 4 cols, 1 row) */}
+            {/* ── Human Remains Repatriation — small card (spans 4 cols, 1 row) */}
             <ScrollReveal delay={0.3} className="md:col-span-3 lg:col-span-4">
               <div className="group h-full rounded-3xl bg-gradient-to-br from-rose-500 to-rose-700 p-6 overflow-hidden relative transition-transform duration-300 hover:scale-[1.01]">
                 <div className="absolute bottom-3 right-3 opacity-[0.12] group-hover:opacity-[0.2] transition-opacity">
-                  <MapPin className="h-24 w-24 text-white" />
+                  <Heart className="h-24 w-24 text-white" />
                 </div>
                 <div className="relative z-10">
                   <div className="inline-flex h-10 w-10 items-center justify-center rounded-lg bg-white/20 backdrop-blur-sm">
-                    <MapPin className="h-5 w-5 text-white" />
+                    <Heart className="h-5 w-5 text-white" />
                   </div>
                   <h3 className="mt-3 text-lg font-bold text-white">
-                    Last Mile
+                    Remains Repatriation
                   </h3>
                   <p className="mt-1 text-xs text-rose-100 leading-relaxed">
-                    Door-to-door delivery with real-time notifications and proof
-                    of delivery.
+                    Compassionate transport of human remains worldwide with full documentation and customs handling.
                   </p>
                 </div>
               </div>

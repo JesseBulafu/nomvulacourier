@@ -8,7 +8,7 @@ import {
   Plane,
   Ship,
   Package,
-  Clock,
+  Heart,
   Shield,
   Globe,
   ArrowRight,
@@ -75,9 +75,9 @@ const services = [
     color: "bg-emerald-500/10 text-emerald-500",
   },
   {
-    Icon: Clock,
-    title: "Last Mile Delivery",
-    desc: "Reliable last-mile solutions with proof of delivery and customer notification systems.",
+    Icon: Heart,
+    title: "Human Remains Repatriation",
+    desc: "Compassionate repatriation of human remains from South Africa to any destination worldwide — we handle bookings, flight documentation, customs clearance, and embassy coordination with dignity, care, and affordable pricing.",
     color: "bg-rose-500/10 text-rose-500",
   },
   {
@@ -241,7 +241,7 @@ export default function HomePage() {
                     {svc.desc}
                   </p>
                   <Link
-                    href="/#services"
+                    href="/about#how-we-deliver"
                     className="mt-5 inline-flex items-center gap-1 text-sm font-medium text-orange-500 group-hover:text-orange-600"
                   >
                     Learn more
